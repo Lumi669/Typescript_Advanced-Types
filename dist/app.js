@@ -1,6 +1,6 @@
 "use strict";
 const e1 = {
-    name: "rose",
+    name: "rosey",
     privileges: ["create-server"],
     startDate: new Date(),
 };

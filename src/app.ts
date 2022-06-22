@@ -27,11 +27,14 @@ interface Employee {
 
 //create a new type based on the above
 //two types
-type ElevatedEmployee = Admin & Employee;
+// type ElevatedEmployee = Admin & Employee;
+
+//replace type ElevatedEmployee with interface ElevatedEmployee
+interface ElevatedEmployee extends Admin, Employee {}
 
 //create an object with ElevatedEmployee type
 const e1: ElevatedEmployee = {
-  name: "rose",
+  name: "rosey",
   privileges: ["create-server"],
   startDate: new Date(),
 };
