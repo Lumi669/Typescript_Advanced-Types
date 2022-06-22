@@ -2,16 +2,28 @@
 //object type, this is not creating
 //an object here, we are defining a type.
 //here can be done with interface as well
-type Admin = {
+// type Admin = {
+//   name: string;
+//   privileges: string[];
+// };
+
+//replace above type Admin with interface Admin
+interface Admin {
   name: string;
   privileges: string[];
-};
+}
 
 //define an Employee type
-type Employee = {
+// type Employee = {
+//   name: string;
+//   startDate: Date;
+// };
+
+//replace type Empolyee with interface Employee
+interface Employee {
   name: string;
   startDate: Date;
-};
+}
 
 //create a new type based on the above
 //two types
@@ -23,3 +35,5 @@ const e1: ElevatedEmployee = {
   privileges: ["create-server"],
   startDate: new Date(),
 };
+
+console.log("e1 = ", e1);
