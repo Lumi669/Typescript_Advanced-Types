@@ -13,6 +13,29 @@ type Employee = {
   startDate: Date;
 };
 
+type UnkownEmployee = Employee | Admin;
+
+//Line21 and Line22 shows errors because emp might not
+//has e.g privileges property if it happens to be Employee type
+// other than Admin type
+// function printEmployeeInformation(emp: UnkownEmployee) {
+//   console.log("Name: ", emp.name);
+//   console.log("Privileges : ", emp.privileges);
+//   console.log("startDate: ", emp.startDate);
+// }
+
+//Below Line31 and Line34 create type guards for object
+// using 'in'
+function printEmployeeInformation(emp: UnkownEmployee) {
+  console.log("Name: ", emp.name);
+  if ("privileges" in emp) {
+    console.log("Privileges : ", emp.privileges);
+  }
+  if ("startDate" in emp) {
+    console.log("startDate: ", emp.startDate);
+  }
+}
+
 //create a new type based on the above
 //two types
 type ElevatedEmployee = Admin & Employee;
@@ -24,7 +47,8 @@ const e1: ElevatedEmployee = {
   startDate: new Date(),
 };
 
-console.log("e1 = ", e1);
+printEmployeeInformation(e1);
+printEmployeeInformation({ name: "Mika", startDate: new Date() });
 
 //Below is demonstrating an intersection type created from
 // 2 union types
