@@ -44,3 +44,17 @@ type Universal = Combinable & Numeric;
 const aa: Universal = 3;
 // const bb: Universal = false;
 // const cc: Universal = "3";
+
+// shows error because Combinable is a string or a number,
+//not know for sure what it is, shoulb be chekced, see below
+// function add(a: Combinable, b: Combinable){
+//   return a + b;
+// }
+
+//Line56 is a type guard, using typeof
+function add(a: Combinable, b: Combinable) {
+  if (typeof a === "string" || typeof b === "string") {
+    return a.toString() + b.toString();
+  }
+  return a + b;
+}
