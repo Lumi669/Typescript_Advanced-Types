@@ -82,3 +82,37 @@ function add(a: Combinable, b: Combinable) {
   }
   return a + b;
 }
+
+//Below demonstrating type guards for class type checking
+//use instanceof
+class Car {
+  drive() {
+    console.log("Driving a car...");
+  }
+}
+
+class Truck {
+  drive() {
+    console.log("Drive a truck ... ");
+  }
+  loadCargo(amount: number) {
+    console.log("Loading cargo ... ", amount);
+  }
+}
+
+//create a union type
+type Vehicle = Car | Truck;
+const v1 = new Car();
+const v2 = new Truck();
+
+//create a function which can do everything Vehicle type can do
+function useVehicle(vehicle: Vehicle, x: number) {
+  vehicle.drive();
+
+  if (vehicle instanceof Truck) {
+    vehicle.loadCargo(x);
+  }
+}
+
+useVehicle(v1, 5);
+useVehicle(v2, 99);

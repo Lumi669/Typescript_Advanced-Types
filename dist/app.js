@@ -22,4 +22,27 @@ function add(a, b) {
     }
     return a + b;
 }
+class Car {
+    drive() {
+        console.log("Driving a car...");
+    }
+}
+class Truck {
+    drive() {
+        console.log("Drive a truck ... ");
+    }
+    loadCargo(amount) {
+        console.log("Loading cargo ... ", amount);
+    }
+}
+const v1 = new Car();
+const v2 = new Truck();
+function useVehicle(vehicle, x) {
+    vehicle.drive();
+    if (vehicle instanceof Truck) {
+        vehicle.loadCargo(x);
+    }
+}
+useVehicle(v1, 5);
+useVehicle(v2, 99);
 //# sourceMappingURL=app.js.map
