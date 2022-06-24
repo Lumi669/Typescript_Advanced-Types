@@ -116,3 +116,32 @@ function useVehicle(vehicle: Vehicle, x: number) {
 
 useVehicle(v1, 5);
 useVehicle(v2, 99);
+
+//below demonstrate Discriminated union type
+
+// create an interface type
+interface Bird {
+  flyingSpeed: number;
+}
+
+interface Horse {
+  runningSpeed: number;
+}
+
+//create an union type
+type Animal = Bird | Horse;
+
+// a function checking interface type before using
+//discriminated union type
+//Note: here use "in", CANNOT use "instanceof"
+function moveAnimal(animal: Animal) {
+  if ("flyingSpeed" in animal) {
+    console.log("Moving with speed: ", animal.flyingSpeed);
+  }
+  if ("runningSpeed" in animal) {
+    console.log("Moving with speed: ", animal.runningSpeed);
+  }
+}
+
+const cuteAnimal: Animal = { flyingSpeed: 90 };
+moveAnimal(cuteAnimal);
