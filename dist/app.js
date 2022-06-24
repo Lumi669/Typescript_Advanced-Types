@@ -16,14 +16,15 @@ const e1 = {
 printEmployeeInformation(e1);
 printEmployeeInformation({ name: "Mika", startDate: new Date() });
 function add(a, b) {
-    if (typeof b !== "undefined") {
-        if (typeof a === "string" || typeof b === "string") {
-            return a.toString() + b.toString();
-        }
-        return a + b;
+    if (typeof a === "string" || typeof b === "string") {
+        return a.toString() + b.toString();
     }
-    return a;
+    return a + b;
 }
+const bb = add(3, 2);
+const aa = add("a", "b");
+const cc = add("a", 1);
+const dd = add(3, "a");
 const result = add("  hello  ", " world    ");
 result.split(" ");
 class Car {

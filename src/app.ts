@@ -67,28 +67,29 @@ type Universal = Combinable & Numeric;
 // in all other function overloads
 //2.Use the expression typeof(parameter) !== 'undefined'
 //to check if the parameter has been initialized.
-function add(n: number): number;
+// function add(n: number): number;
 
-//create a function overload bellow
-function add(a: number, b?: number): number;
+//create several function overloads bellow
+function add(a: number, b: number): number;
+function add(a: number, b: string): string;
+function add(a: string, b: number): string;
+function add(a: string, b: string): string;
 
 // create a type guard, using typeof
-function add(a: Combinable, b?: Combinable) {
-  if (typeof b !== "undefined") {
-    if (typeof a === "string" || typeof b === "string") {
-      return a.toString() + b.toString();
-    }
-    return a + b;
+function add(a: Combinable, b: Combinable) {
+  if (typeof a === "string" || typeof b === "string") {
+    return a.toString() + b.toString();
   }
-  return a;
+  return a + b;
 }
 
-const aa = add(3);
 const bb = add(3, 2);
+const aa = add("a", "b");
+const cc = add("a", 1);
+const dd = add(3, "a");
 
 //use type casting to tell Typescript that result is a string here
-const result = add("  hello  ", " world    ") as string;
-
+const result = add("  hello  ", " world    ");
 result.split(" ");
 
 //Below demonstrating type guards for class type checking
