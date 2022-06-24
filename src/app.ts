@@ -180,11 +180,20 @@ if (userInputElement) {
 //Line183 define index properties
 interface ErrorContainer {
   //{email: "Not a valid email", username: "Must start with a character!"}
+
+  //create a predfined property id, its value must be string
+  //because predefined property must obey the rule
+  //set by index properties in Line189, which define the value
+  //of property must be string.
+  id: string;
   [prop: string]: string;
 }
 
 //create an object based on ErrorContainer interface
+//predefined property MUST be implemented, if no line
+//196, will show error
 const errorContainer: ErrorContainer = {
+  id: "88",
   email: "Not a valid email",
   username: "Must start with a character",
 };

@@ -64,6 +64,7 @@ if (userInputElement) {
     userInputElement.value = "Hi, there";
 }
 const errorContainer = {
+    id: "88",
     email: "Not a valid email",
     username: "Must start with a character",
 };
