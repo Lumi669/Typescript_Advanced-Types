@@ -59,29 +59,37 @@ type Combinable = string | number;
 //create an union type
 type Numeric = boolean | number;
 
-//create an intersection type from two union types
-//The Universal type now is number type,
-// because it takes the common part of the two union types.
-// Line46 and Line47 both shows error!!!
+//create an intersection
 type Universal = Combinable & Numeric;
 
-const aa: Universal = 3;
-// const bb: Universal = false;
-// const cc: Universal = "3";
+//create a function overload with only one parameter
+//then 1.Use the parameter?: type syntax to make another parameter optional
+// in all other function overloads
+//2.Use the expression typeof(parameter) !== 'undefined'
+//to check if the parameter has been initialized.
+function add(n: number): number;
 
-// shows error because Combinable is a string or a number,
-//not know for sure what it is, shoulb be chekced, see below
-// function add(a: Combinable, b: Combinable){
-//   return a + b;
-// }
+//create a function overload bellow
+function add(a: number, b?: number): number;
 
-//Line56 is a type guard, using typeof
-function add(a: Combinable, b: Combinable) {
-  if (typeof a === "string" || typeof b === "string") {
-    return a.toString() + b.toString();
+// create a type guard, using typeof
+function add(a: Combinable, b?: Combinable) {
+  if (typeof b !== "undefined") {
+    if (typeof a === "string" || typeof b === "string") {
+      return a.toString() + b.toString();
+    }
+    return a + b;
   }
-  return a + b;
+  return a;
 }
+
+const aa = add(3);
+const bb = add(3, 2);
+
+//use type casting to tell Typescript that result is a string here
+const result = add("  hello  ", " world    ") as string;
+
+result.split(" ");
 
 //Below demonstrating type guards for class type checking
 //use instanceof
@@ -196,4 +204,11 @@ const errorContainer: ErrorContainer = {
   id: "88",
   email: "Not a valid email",
   username: "Must start with a character",
+};
+
+const errorBag: ErrorContainer = {
+  id: "99",
+
+  1: "Hello World", //here number 1 as property, and typescript consider it as a string
+  food: "apple",
 };

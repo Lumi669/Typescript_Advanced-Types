@@ -15,13 +15,17 @@ const e1 = {
 };
 printEmployeeInformation(e1);
 printEmployeeInformation({ name: "Mika", startDate: new Date() });
-const aa = 3;
 function add(a, b) {
-    if (typeof a === "string" || typeof b === "string") {
-        return a.toString() + b.toString();
+    if (typeof b !== "undefined") {
+        if (typeof a === "string" || typeof b === "string") {
+            return a.toString() + b.toString();
+        }
+        return a + b;
     }
-    return a + b;
+    return a;
 }
+const result = add("  hello  ", " world    ");
+result.split(" ");
 class Car {
     drive() {
         console.log("Driving a car...");
@@ -67,5 +71,10 @@ const errorContainer = {
     id: "88",
     email: "Not a valid email",
     username: "Must start with a character",
+};
+const errorBag = {
+    id: "99",
+    1: "Hello World",
+    food: "apple",
 };
 //# sourceMappingURL=app.js.map
