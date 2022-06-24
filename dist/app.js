@@ -46,13 +46,17 @@ function useVehicle(vehicle, x) {
 useVehicle(v1, 5);
 useVehicle(v2, 99);
 function moveAnimal(animal) {
-    if ("flyingSpeed" in animal) {
-        console.log("Moving with speed: ", animal.flyingSpeed);
+    let speed;
+    switch (animal.aa) {
+        case "bird":
+            speed = "flyingSpeed";
+            break;
+        case "horse":
+            speed = "runningSpeed";
+            break;
     }
-    if ("runningSpeed" in animal) {
-        console.log("Moving with speed: ", animal.runningSpeed);
-    }
+    console.log(`Now animald is ${animal.aa} and its speed is: ${speed} `);
 }
-const cuteAnimal = { flyingSpeed: 90 };
+const cuteAnimal = { aa: "bird", flyingSpeed: 90 };
 moveAnimal(cuteAnimal);
 //# sourceMappingURL=app.js.map

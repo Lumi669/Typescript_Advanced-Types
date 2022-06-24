@@ -119,29 +119,36 @@ useVehicle(v2, 99);
 
 //below demonstrate Discriminated union type
 
-// create an interface type
+// create two interface types, Bird and Horse
 interface Bird {
+  aa: "bird"; //create a literal type
   flyingSpeed: number;
 }
 
 interface Horse {
+  aa: "horse"; //create a literal type
   runningSpeed: number;
 }
 
 //create an union type
 type Animal = Bird | Horse;
 
-// a function checking interface type before using
+// a function checking interface type now using
 //discriminated union type
-//Note: here use "in", CANNOT use "instanceof"
+//Note: now use switch statement
 function moveAnimal(animal: Animal) {
-  if ("flyingSpeed" in animal) {
-    console.log("Moving with speed: ", animal.flyingSpeed);
+  let speed;
+  switch (animal.aa) {
+    case "bird":
+      speed = "flyingSpeed";
+      break;
+    case "horse":
+      speed = "runningSpeed";
+      break;
   }
-  if ("runningSpeed" in animal) {
-    console.log("Moving with speed: ", animal.runningSpeed);
-  }
+
+  console.log(`Now animald is ${animal.aa} and its speed is: ${speed} `);
 }
 
-const cuteAnimal: Animal = { flyingSpeed: 90 };
+const cuteAnimal: Animal = { aa: "bird", flyingSpeed: 90 };
 moveAnimal(cuteAnimal);
