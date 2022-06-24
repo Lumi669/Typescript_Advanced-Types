@@ -175,3 +175,16 @@ if (userInputElement) {
   //way2
   (<HTMLInputElement>userInputElement).value = "Hi, there";
 }
+
+//below demonstate Index Properties
+//Line183 define index properties
+interface ErrorContainer {
+  //{email: "Not a valid email", username: "Must start with a character!"}
+  [prop: string]: string;
+}
+
+//create an object based on ErrorContainer interface
+const errorContainer: ErrorContainer = {
+  email: "Not a valid email",
+  username: "Must start with a character",
+};
