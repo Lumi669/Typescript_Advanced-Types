@@ -160,7 +160,18 @@ moveAnimal(cuteAnimal);
 
 //way2 of typecasting: us 'as', this way prevent clashing with React jsx syntax
 //which also use '<>'.
-const userInputElement = document.getElementById(
-  "user-input"
-)! as HTMLInputElement;
-userInputElement.value = "Hi, there!";
+// const userInputElement = document.getElementById(
+//   "user-input"
+// )! as HTMLInputElement;
+
+//if cannot use '!' to tell typescript yes there is always an HIMLInputElement
+//, then change place of using typecasting, and use if statement to check
+const userInputElement = document.getElementById("user-input");
+
+if (userInputElement) {
+  //way 1
+  // (userInputElement as HTMLInputElement).value = "Hi, there!";
+
+  //way2
+  (<HTMLInputElement>userInputElement).value = "Hi, there";
+}
