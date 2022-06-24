@@ -152,3 +152,15 @@ function moveAnimal(animal: Animal) {
 
 const cuteAnimal: Animal = { aa: "bird", flyingSpeed: 90 };
 moveAnimal(cuteAnimal);
+
+//below demonstrate Type Casting
+
+//way1 of typecasting: use '<type>'
+//const userInputElement = <HTMLInputElement>document.getElementById("user-input")!;
+
+//way2 of typecasting: us 'as', this way prevent clashing with React jsx syntax
+//which also use '<>'.
+const userInputElement = document.getElementById(
+  "user-input"
+)! as HTMLInputElement;
+userInputElement.value = "Hi, there!";

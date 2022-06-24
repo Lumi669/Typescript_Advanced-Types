@@ -59,4 +59,6 @@ function moveAnimal(animal) {
 }
 const cuteAnimal = { aa: "bird", flyingSpeed: 90 };
 moveAnimal(cuteAnimal);
+const userInputElement = document.getElementById("user-input");
+userInputElement.value = "Hi, there!";
 //# sourceMappingURL=app.js.map
