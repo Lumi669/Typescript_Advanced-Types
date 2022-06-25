@@ -1,81 +1,10 @@
 "use strict";
-function printEmployeeInformation(emp) {
-    console.log("Name: ", emp.name);
-    if ("privileges" in emp) {
-        console.log("Privileges : ", emp.privileges);
-    }
-    if ("startDate" in emp) {
-        console.log("startDate: ", emp.startDate);
-    }
-}
-const e1 = {
+var _a, _b;
+const fetchedUserData = {
+    id: "u1880099",
     name: "Rose",
-    privileges: ["create-server"],
-    startDate: new Date(),
 };
-printEmployeeInformation(e1);
-printEmployeeInformation({ name: "Mika", startDate: new Date() });
-function add(a, b) {
-    if (typeof a === "string" || typeof b === "string") {
-        return a.toString() + b.toString();
-    }
-    return a + b;
-}
-const bb = add(3, 2);
-const aa = add("a", "b");
-const cc = add("a", 1);
-const dd = add(3, "a");
-const result = add("  hello  ", " world    ");
-result.split(" ");
-class Car {
-    drive() {
-        console.log("Driving a car...");
-    }
-}
-class Truck {
-    drive() {
-        console.log("Drive a truck ... ");
-    }
-    loadCargo(amount) {
-        console.log("Loading cargo ... ", amount);
-    }
-}
-const v1 = new Car();
-const v2 = new Truck();
-function useVehicle(vehicle, x) {
-    vehicle.drive();
-    if (vehicle instanceof Truck) {
-        vehicle.loadCargo(x);
-    }
-}
-useVehicle(v1, 5);
-useVehicle(v2, 99);
-function moveAnimal(animal) {
-    let speed;
-    switch (animal.aa) {
-        case "bird":
-            speed = "flyingSpeed";
-            break;
-        case "horse":
-            speed = "runningSpeed";
-            break;
-    }
-    console.log(`Now animald is ${animal.aa} and its speed is: ${speed} `);
-}
-const cuteAnimal = { aa: "bird", flyingSpeed: 90 };
-moveAnimal(cuteAnimal);
-const userInputElement = document.getElementById("user-input");
-if (userInputElement) {
-    userInputElement.value = "Hi, there";
-}
-const errorContainer = {
-    id: "88",
-    email: "Not a valid email",
-    username: "Must start with a character",
-};
-const errorBag = {
-    id: "99",
-    1: "Hello World",
-    food: "apple",
-};
+console.log((_a = fetchedUserData.job) === null || _a === void 0 ? void 0 : _a.title);
+console.log((_b = fetchedUserData.job) === null || _b === void 0 ? void 0 : _b.title);
+console.log(fetchedUserData.id);
 //# sourceMappingURL=app.js.map
