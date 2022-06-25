@@ -94,16 +94,16 @@
 
 // demonstrate optional chaining start
 
-const fetchedUserData = {
-  id: "u1880099",
-  name: "Rose",
-  //job: { title: "CEOoooooooo", descrition: "My own company" },
-};
-console.log((fetchedUserData as any).job?.title);
+// const fetchedUserData = {
+//   id: "u1880099",
+//   name: "Rose",
+//   //job: { title: "CEOoooooooo", descrition: "My own company" },
+// };
+// console.log((fetchedUserData as any).job?.title);
 
-//this also works
-console.log((<any>fetchedUserData).job?.title);
-console.log(fetchedUserData.id);
+// //this also works
+// console.log((<any>fetchedUserData).job?.title);
+// console.log(fetchedUserData.id);
 
 // //in javascript and ols way of typesript use the following syntax
 // console.log(
@@ -111,6 +111,75 @@ console.log(fetchedUserData.id);
 // );
 
 //stop demonstration of optional chaining
+
+//demonstrate nullish coalescing
+
+// '||' operator and falsy on the left
+let zero = 0;
+let emptytext = "";
+let boln = false;
+let minusZero = -0;
+let nonum = NaN;
+let nulli = null;
+let andi = undefined;
+let zhe = ``;
+let dum = document.all;
+
+let zeroN = 0n;
+
+// '||' operator and falsy on the left
+// it take the right side value if the left
+//side is falsy value
+
+//a positive controll
+// let positive = 36 || 89;
+// let qty = zero || 42;
+// let message = emptytext || "hi!";
+// let aa = boln || "apple";
+// let bb = minusZero || "hello minusZero";
+// let cc = nonum || "not a number";
+// let dd = nulli || "not a null";
+// let ee = andi || "not undefined";
+// let ff = zhe || "not a zhe";
+// let gg = dum || "not a document.all";
+// let hh = zeroN || "not 0n";
+
+// '??' nullish coalescing operator, only null and undefined
+// it take the right side value
+//a positive conroll
+let positive = 36 ?? 89;
+let qty = zero ?? 42;
+let message = emptytext ?? "hi!";
+let aa = boln ?? "apple";
+let bb = minusZero ?? "hello minusZero";
+let cc = nonum ?? "not a number";
+let dd = nulli ?? "not a null";
+let ee = andi ?? "not undefined";
+let ff = zhe ?? "not a zhe";
+let gg = dum ?? "not a document.all";
+let hh = zeroN ?? "not 0n";
+
+console.log(qty);
+console.log(message);
+console.log(aa);
+console.log(bb);
+console.log(cc);
+console.log(dd);
+console.log(ee);
+console.log(ff);
+console.log(gg);
+console.log(positive);
+
+if (typeof hh === "bigint") {
+  console.log("big int: hh = ", hh);
+}
+if (typeof hh === "string") {
+  console.log("string hh = ", hh);
+}
+
+// '??' operator, nullish coalescing operator
+
+//stop demonstration of nullish coalescing
 
 // //Below demonstrating type guards for class type checking
 // //use instanceof
